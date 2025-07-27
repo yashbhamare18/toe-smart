@@ -26,7 +26,7 @@ export default function Login() {
   const handleFormSumbit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:9002/admin/login", formData);
+      const res = await axios.post("https://toe-smart.onrender.com/admin/login", formData);
       if (res.data) {
         localStorage.setItem("Admin", JSON.stringify(res.data.admin));
         toast.success("Login Successfully as Admin");

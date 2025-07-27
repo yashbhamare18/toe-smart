@@ -17,7 +17,7 @@ export default function CustomerChallans() {
         return;
       }
 
-      const res = await axios.post("http://localhost:9002/c/get-challans", {
+      const res = await axios.post("https://toe-smart.onrender.com/c/get-challans", {
         customerId,
       });
 
@@ -45,7 +45,7 @@ export default function CustomerChallans() {
 
   const handleConfirmPayment = async () => {
     try {
-      const res = await axios.delete(`http://localhost:9002/c/delete-challan/${selectedChallan._id}`);
+      const res = await axios.delete(`https://toe-smart.onrender.com/c/delete-challan/${selectedChallan._id}`);
       if (res.data.success) {
         toast.success("Challan paid and removed successfully!");
         setChallans(prev => prev.filter(c => c._id !== selectedChallan._id)); // update UI

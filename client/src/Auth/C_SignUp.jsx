@@ -76,7 +76,7 @@ export default function C_SignUp() {
   }
 
   try {
-    const res = await axios.post("http://localhost:9002/customer/signup", formData);
+    const res = await axios.post("https://toe-smart.onrender.com/customer/signup", formData);
     if (res.data) {
       toast.success("Signup Successfully as customer");
       navigate("/c/login");

@@ -26,7 +26,7 @@ export default function C_Login() {
   const handleFormSumbit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:9002/customer/login", formData);
+      const res = await axios.post("https://toe-smart.onrender.com/login", formData);
       console.log(res.data)
       if (res.data) {
         localStorage.setItem("Customer", JSON.stringify(res.data.customer));

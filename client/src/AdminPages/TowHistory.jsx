@@ -9,7 +9,7 @@ export default function TowHistory() {
   useEffect(() => {
     const fetchChallans = async () => {
       try {
-        const res = await axios.post("http://localhost:9002/get-challans");
+        const res = await axios.post("https://toe-smart.onrender.com/get-challans");
         setChallans(res.data.challans);
       } catch (error) {
         console.error("Error fetching challans:", error);

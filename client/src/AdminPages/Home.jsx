@@ -66,7 +66,7 @@ export default function Home() {
     setSmsSent(true);
 
     try {
-      const res = await axios.post("http://localhost:9002/home", {
+      const res = await axios.post("https://toe-smart.onrender.com/home", {
         vehicalNo,
         vehicalType,
         vehicalModel,
@@ -75,7 +75,7 @@ export default function Home() {
       const info = res.data?.vehicalDetails;
       const phone = info.vehicalOwner.phone;
       const msg = `Dear ${info.vehicalOwner.fullName},
-Your vehicle ${info.vehicalModel} (${info.vehicalNo}) was towed due to parking violation. For more info : http://localhost:5173/home .`;
+Your vehicle ${info.vehicalModel} (${info.vehicalNo}) was towed due to parking violation. For more info : https://toe-smart.onrender.com/home .`;
 
       sendSms(phone, msg, info, vehicalType);
 
@@ -94,7 +94,7 @@ Your vehicle ${info.vehicalModel} (${info.vehicalNo}) was towed due to parking v
 
   const makeChallan = async (info, vehicalType) => {
     try {
-      await axios.post("http://localhost:9002/make-challan", { info, vehicalType: vehicalType }).then((res) => {
+      await axios.post("https://toe-smart.onrender.com/make-challan", { info, vehicalType: vehicalType }).then((res) => {
         console.log(res.data)
       }).catch((err) => {
         console.log(err)
@@ -106,7 +106,7 @@ Your vehicle ${info.vehicalModel} (${info.vehicalNo}) was towed due to parking v
 
   const sendSms = async (phone, msg, info, vehicalType) => {
     try {
-      await axios.post("http://localhost:9002/send-sms", {
+      await axios.post("https://toe-smart.onrender.com/send-sms", {
         message: msg,
         phone: phone,
       });
